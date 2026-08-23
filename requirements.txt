@@ -3,3 +3,14 @@ transformers
 datasets
 soundfile
 librosa
+fastapi
+uvicorn
+python-dotenv
+openai
+chromadb
+langchain
+langchain-community
+pydantic
+sentence-transformers
+pytest
+httpx
