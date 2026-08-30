@@ -1,0 +1,1 @@
+import React from 'react';\nexport default () => <div>StreakDay1</div>;

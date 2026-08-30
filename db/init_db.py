@@ -13,7 +13,7 @@ def init_db():
     
     # Paths for DB and schema
     db_path = os.path.join(data_dir, 'interview_bot.db')
-    schema_path = os.path.join(current_dir, 'schema.sql')
+    schema_path = os.path.join(current_dir, '..', 'schema.sql')
     
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()

@@ -1,20 +1,22 @@
-import torch
-from transformers import pipeline
-from datasets import load_dataset
+import asyncio
+from services.nvidia_sts_service import NVIDIASTSService
 
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
+async def test_nvidia_sts():
+    print("Testing NVIDIA STS (Speech-to-Speech) Model...")
+    sts = NVIDIASTSService()
+    
+    # 1. Test speech generation with text prompt fallback
+    res = await sts.process_speech_turn(
+        text_prompt="I have built distributed systems with Kafka and PostgreSQL.",
+        context="Candidate with 3 years backend engineering experience."
+    )
+    
+    print(f"Transcript: {res['transcript']}")
+    print(f"Response: {res['response_text']}")
+    print(f"Audio bytes generated: {len(res['audio_bytes'])} bytes")
+    print(f"Latency: {res['latency_ms']} ms")
+    print(f"Model: {res['model']}")
+    print("NVIDIA STS Model test completed successfully!")
 
-pipe = pipeline(
-  "automatic-speech-recognition",
-  model="openai/whisper-small",
-  chunk_length_s=30,
-  device=device,
-)
-
-ds = load_dataset("hf-internal-testing/librispeech_asr_dummy", "clean", split="validation")
-sample = ds[0]["audio"]
-
-prediction = pipe(sample.copy(), batch_size=8)["text"]
-
-# we can also return timestamps for the predictions
-prediction = pipe(sample.copy(), batch_size=8, return_timestamps=True)["chunks"]
+if __name__ == "__main__":
+    asyncio.run(test_nvidia_sts())

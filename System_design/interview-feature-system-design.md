@@ -1,73 +1,47 @@
-# AI Mock Interview Feature — Simple System Design (Domain-Knowledge Focus)
+# AI Mock Interview Feature — System Design (NVIDIA STS + Domain-Knowledge Focus)
 
-## 1. Why this differs from GD
+## 1. Executive Summary & Philosophy
 
-A GD room needs speed and personality (multiple AI voices, quick back-and-forth). An interview needs to be **factually correct** — if the AI asks a technical question or judges a technical answer, it has to be grounded in real domain knowledge, not just fluent-sounding text. So the core addition here vs. the GD design is a **Knowledge Retrieval step** between the user's answer and the LLM's evaluation.
+An interview needs to be both **factually grounded** and **conversational with minimal latency**. By utilizing **NVIDIA Speech-to-Speech (STS / Audio-to-Audio)**, the system eliminates traditional multi-step pipeline latencies (STT $\to$ LLM text $\to$ TTS audio generation), enabling direct speech input and synthesized voice output with ChromaDB RAG domain grounding.
 
 ## 2. Architecture
 
 ```
-┌──────────┐   audio    ┌───────────────┐   text    ┌────────────────────┐
-│  Mobile  │ ─────────► │  STT (Whisper) │ ────────► │  Interview Engine    │
-│  App     │            └───────────────┘            │  (Orchestrator)      │
-└────▲─────┘                                          └─────────┬───────────┘
-     │  audio (AI voice)                                         │
-┌────┴─────┐   ◄────────────────────────────────────┐            │
-│   TTS    │                                          │            │
-└──────────┘                                          │            │
-                                                        │            │
-                          ┌────────────────────────────▼──┐         │
-                          │   Knowledge Retrieval (RAG)     │◄────────┘
-                          │   - Domain KB (vector DB)        │
-                          │   - JD / Resume embeddings        │
-                          └────────────────────────────┬──────┘
-                                                          │ retrieved facts
-                                                          ▼
-                                          ┌─────────────────────────────┐
-                                          │   LLM Gateway                  │
-                                          │   Primary: DeepSeek V4 Flash   │
-                                          │   Fallback: DeepSeek V3        │
-                                          │   - Next question                │
-                                          │   - Answer evaluation (grounded)│
-                                          └─────────────────────────────┘
+┌──────────┐   candidate speech audio   ┌────────────────────────────────────────┐
+│  Client  │ ─────────────────────────► │   NVIDIA Speech-to-Speech (STS) Engine │
+│  App     │ ◄───────────────────────── │   - Audio-in to Audio-out Synthesis    │
+└──────────┘    synthesized AI voice    └──────────────┬─────────────────────────┘
+                                                       │
+                                                       ▼
+                                         ┌───────────────────────────┐
+                                         │   RAG Knowledge Retrieval │
+                                         │   - Domain Vector DB      │
+                                         │   - Resume / JD Embeddings│
+                                         └─────────────┬─────────────┘
+                                                       │
+                                                       ▼
+                                         ┌───────────────────────────┐
+                                         │   DeepSeek LLM Evaluator  │
+                                         │   - Scoring & Metrics     │
+                                         │   - Context Grounding     │
+                                         └───────────────────────────┘
 ```
 
-## 3. Components (kept minimal)
+## 3. Components
 
 | Component | Job |
 |---|---|
-| **STT (Whisper)** | Converts the user's spoken answer to text |
-| **Knowledge Retrieval (RAG)** | Before asking a question or scoring an answer, pulls relevant facts from a **domain knowledge base** (e.g. correct definitions, standard algorithms, best practices for the user's target role) plus the user's own **resume/JD** content, via vector similarity search |
-| **LLM Gateway** | Same DeepSeek V4 Flash → V3 fallback pattern as GD. Takes the retrieved facts + transcript and generates the next question or scores the last answer — grounded in retrieved facts instead of the model's raw memory |
-| **TTS** | Speaks the AI interviewer's question aloud |
-| **Interview Engine** | Simple sequential flow (not multi-agent): ask → listen → retrieve → evaluate → next question |
+| **NVIDIA STS (Speech-to-Speech)** | End-to-end voice processing model (NVIDIA NIM / Riva STS). Converts candidate spoken input directly into conversational AI speech responses with low latency and human-like voice synthesis. |
+| **Knowledge Retrieval (RAG)** | Pulls relevant facts from a **domain knowledge base** (e.g. correct definitions, standard algorithms, best practices for target roles) plus candidate **resume/JD** content via vector similarity search (ChromaDB). |
+| **LLM Evaluator (DeepSeek)** | Generates structured correctness scores, feedback, and technical depth analysis grounded in retrieved facts. |
+| **Interview Engine Gateway** | FastAPI REST & WebSocket orchestrator managing turn flow and real-time streaming. |
 
-## 4. Why RAG matters here specifically
-
-- Prevents the AI from confidently asking outdated or wrong technical questions (e.g. deprecated library APIs, incorrect algorithm complexity).
-- Lets the "AI Ideal Answer" and feedback (from Module 2.3's Post-Interview Report) be checked against real reference material instead of the LLM inventing an answer.
-- Domain KB can be scoped per `Interview Type` (Technical / HR / Behavioral) and per role (e.g. Software Engineer vs. Marketing Manager) so retrieval stays relevant.
-
-## 5. Simple Flow
+## 4. End-to-End Flow
 
 ```
-1. User answer transcribed (STT)
-2. Orchestrator queries Knowledge Retrieval:
-     - "facts relevant to this question + this answer"
-3. LLM Gateway call:
-     input = { question, user_answer, retrieved_facts, resume/JD context }
-     output = { correctness_score, feedback, next_question }
-4. TTS speaks next_question
-5. Repeat until interview duration ends
+1. Candidate speaks into mic (streamed via WebSocket or uploaded via REST).
+2. Knowledge Retrieval queries relevant domain facts based on current context.
+3. NVIDIA STS Model processes speech turn and generates synthesized conversational voice output.
+4. DeepSeek LLM evaluates answer correctness, scoring (0-10), and feedback.
+5. Client receives synchronized audio output and evaluation telemetry in real time.
 ```
-
-## 6. What's deliberately left out (vs. GD design)
-
-- No multi-participant turn-taking / floor-locking (single AI ↔ single user)
-- No real-time moderation triggers (silence/domination logic) — just a simple timer per question
-- No per-participant voice assignment — one consistent interviewer voice
-- Report generation can run synchronously at the end (no async queue needed) since it's a single transcript, not a multi-speaker one
-
-## 7. Fallback behavior
-
-Same as GD: DeepSeek V4 Flash → DeepSeek V3 on failure. If Knowledge Retrieval is unavailable, the Orchestrator falls back to ungrounded LLM generation but flags the session's feedback as `low_confidence` so the report can note it may need manual review.

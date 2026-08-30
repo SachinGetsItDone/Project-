@@ -1,0 +1,248 @@
+{
+  ".claude/settings.local.json": {
+    "mtime": 1788063945.1662118,
+    "seen": 1788063964.4122338,
+    "ast_hash": "469ba3aeaaea7d2c48a453d5c822427c",
+    "semantic_hash": "469ba3aeaaea7d2c48a453d5c822427c"
+  },
+  "App.jsx": {
+    "mtime": 1787631880.3411913,
+    "seen": 1788063616.76333,
+    "ast_hash": "f3cb719331770e0eb6185c69996c646d",
+    "semantic_hash": "f3cb719331770e0eb6185c69996c646d"
+  },
+  "components/ProtectedRoute.jsx": {
+    "mtime": 1787980910.533558,
+    "seen": 1788063616.7633398,
+    "ast_hash": "75e5a2426654a29f2c571b6fc2abbdb1",
+    "semantic_hash": "75e5a2426654a29f2c571b6fc2abbdb1"
+  },
+  "context/AuthContext.jsx": {
+    "mtime": 1787980910.533558,
+    "seen": 1788063616.7633457,
+    "ast_hash": "6b316fc50507390528a4bd37964e1d03",
+    "semantic_hash": "6b316fc50507390528a4bd37964e1d03"
+  },
+  "core/config.py": {
+    "mtime": 1788062534.045348,
+    "seen": 1788063616.763351,
+    "ast_hash": "f39e9d5f2865ae13130085b3a6fab8eb",
+    "semantic_hash": "f39e9d5f2865ae13130085b3a6fab8eb"
+  },
+  "core/gateway.py": {
+    "mtime": 1788062547.72706,
+    "seen": 1788063616.7633555,
+    "ast_hash": "a8a4d8cb0bb58fcab76a572f4551406f",
+    "semantic_hash": "a8a4d8cb0bb58fcab76a572f4551406f"
+  },
+  "db/init_db.py": {
+    "mtime": 1787980847.789934,
+    "seen": 1788063616.7633605,
+    "ast_hash": "20daec88d83cfec3cb3260c0d6565cd1",
+    "semantic_hash": "20daec88d83cfec3cb3260c0d6565cd1"
+  },
+  "db/schema.sql": {
+    "mtime": 1787632044.9218106,
+    "seen": 1788063616.7633646,
+    "ast_hash": "8afb6e3463fc673f791e270c2a469b21",
+    "semantic_hash": "8afb6e3463fc673f791e270c2a469b21"
+  },
+  "generate_stubs.py": {
+    "mtime": 1787980895.9570794,
+    "seen": 1788063616.7633681,
+    "ast_hash": "e9de190d6064f73cb8644fab59520cde",
+    "semantic_hash": "e9de190d6064f73cb8644fab59520cde"
+  },
+  "main.jsx": {
+    "mtime": 1787631880.349369,
+    "seen": 1788063616.7633722,
+    "ast_hash": "2ea0cb0606d4eac53c98c04ed7f958fd",
+    "semantic_hash": "2ea0cb0606d4eac53c98c04ed7f958fd"
+  },
+  "package.json": {
+    "mtime": 1787631880.3578393,
+    "seen": 1788063616.7633762,
+    "ast_hash": "0fd55cb8d738efabd12682f4ad43f2dc",
+    "semantic_hash": "0fd55cb8d738efabd12682f4ad43f2dc"
+  },
+  "pages/AvatarEditor.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7633808,
+    "ast_hash": "1439efc2ff505549a596c9a8acc9b598",
+    "semantic_hash": "1439efc2ff505549a596c9a8acc9b598"
+  },
+  "pages/Feed.jsx": {
+    "mtime": 1787980910.5656462,
+    "seen": 1788063616.763384,
+    "ast_hash": "9f0de703bd1eaf86a16aeb8b5017a846",
+    "semantic_hash": "9f0de703bd1eaf86a16aeb8b5017a846"
+  },
+  "pages/HomePage.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7633874,
+    "ast_hash": "ed3a6abaeea79b47276facb46079f6dc",
+    "semantic_hash": "ed3a6abaeea79b47276facb46079f6dc"
+  },
+  "pages/InterviewCall.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7633905,
+    "ast_hash": "c7dd5cc46d24cb8e011d8588f4b526a8",
+    "semantic_hash": "c7dd5cc46d24cb8e011d8588f4b526a8"
+  },
+  "pages/InterviewMatches.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7633939,
+    "ast_hash": "0f531f24d1d83b25a0af6d1666adf019",
+    "semantic_hash": "0f531f24d1d83b25a0af6d1666adf019"
+  },
+  "pages/InterviewReport.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.763397,
+    "ast_hash": "9eca8e3d56024eaa8256d2a866b5d3db",
+    "semantic_hash": "9eca8e3d56024eaa8256d2a866b5d3db"
+  },
+  "pages/InterviewSetup.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7634,
+    "ast_hash": "1c9d8044bb18703b18e7b4e7838fe7e6",
+    "semantic_hash": "1c9d8044bb18703b18e7b4e7838fe7e6"
+  },
+  "pages/Leaderboard.jsx": {
+    "mtime": 1787980910.5656462,
+    "seen": 1788063616.7634034,
+    "ast_hash": "764445f700682eeaaf4ecdba6522d239",
+    "semantic_hash": "764445f700682eeaaf4ecdba6522d239"
+  },
+  "pages/LoadingScreen.jsx": {
+    "mtime": 1787980910.5656462,
+    "seen": 1788063616.763407,
+    "ast_hash": "2c1a4c869e4e03eb6eaf614dfbad6f23",
+    "semantic_hash": "2c1a4c869e4e03eb6eaf614dfbad6f23"
+  },
+  "pages/LoginPage.jsx": {
+    "mtime": 1787980910.533558,
+    "seen": 1788063616.76341,
+    "ast_hash": "f0ecf934aa47e844b76562d67b17e151",
+    "semantic_hash": "f0ecf934aa47e844b76562d67b17e151"
+  },
+  "pages/PracticePath.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7634134,
+    "ast_hash": "7668b75902ed20b0f26b35814cd76b45",
+    "semantic_hash": "7668b75902ed20b0f26b35814cd76b45"
+  },
+  "pages/ProfileFirstVisit.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.763419,
+    "ast_hash": "08639e09e8b18b98dce0febc65f313f1",
+    "semantic_hash": "08639e09e8b18b98dce0febc65f313f1"
+  },
+  "pages/ProfileSetupPage.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7634223,
+    "ast_hash": "24b30028e3e76539dcc099819ca38096",
+    "semantic_hash": "24b30028e3e76539dcc099819ca38096"
+  },
+  "pages/Quests.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7634254,
+    "ast_hash": "b73e1a530b5699f9d64bd63771f017fc",
+    "semantic_hash": "b73e1a530b5699f9d64bd63771f017fc"
+  },
+  "pages/SettingsPage.jsx": {
+    "mtime": 1787980910.5656462,
+    "seen": 1788063616.7634292,
+    "ast_hash": "a8d30cf044186fc3a21100fb705cee39",
+    "semantic_hash": "a8d30cf044186fc3a21100fb705cee39"
+  },
+  "pages/onboarding/ModeSelection.jsx": {
+    "mtime": 1787980910.533558,
+    "seen": 1788063616.7634323,
+    "ast_hash": "71ebc67f409ca34407b9d6770cdd1658",
+    "semantic_hash": "71ebc67f409ca34407b9d6770cdd1658"
+  },
+  "pages/onboarding/PlacementQuiz.jsx": {
+    "mtime": 1787980910.533558,
+    "seen": 1788063616.7634356,
+    "ast_hash": "55dd29878067e55f25f7f9672693dc64",
+    "semantic_hash": "55dd29878067e55f25f7f9672693dc64"
+  },
+  "pages/onboarding/ScoreReveal.jsx": {
+    "mtime": 1787980910.5478716,
+    "seen": 1788063616.7634387,
+    "ast_hash": "24f321d1b1b5118e79e353f4402f7413",
+    "semantic_hash": "24f321d1b1b5118e79e353f4402f7413"
+  },
+  "pages/onboarding/SessionResult.jsx": {
+    "mtime": 1787980910.5533905,
+    "seen": 1788063616.7634413,
+    "ast_hash": "e4c4028ecb30b468c8d702d5beb9d0ae",
+    "semantic_hash": "e4c4028ecb30b468c8d702d5beb9d0ae"
+  },
+  "pages/onboarding/StreakDay1.jsx": {
+    "mtime": 1787980910.5496151,
+    "seen": 1788063616.7634444,
+    "ast_hash": "eacf67702f87ff6e4ca9b83f8087f5f5",
+    "semantic_hash": "eacf67702f87ff6e4ca9b83f8087f5f5"
+  },
+  "pages/onboarding/StreakGoal.jsx": {
+    "mtime": 1787980910.5496151,
+    "seen": 1788063616.7634475,
+    "ast_hash": "66ae91bdaf42fbd45d73f35d20d273ce",
+    "semantic_hash": "66ae91bdaf42fbd45d73f35d20d273ce"
+  },
+  "schema.sql": {
+    "mtime": 1787633088.9100842,
+    "seen": 1788063616.7634506,
+    "ast_hash": "8afb6e3463fc673f791e270c2a469b21",
+    "semantic_hash": "8afb6e3463fc673f791e270c2a469b21"
+  },
+  "services/llm_gateway.py": {
+    "mtime": 1787213588.5214143,
+    "seen": 1788063616.763454,
+    "ast_hash": "57592b25d4d0f6f1d029e7f732b4e4c6",
+    "semantic_hash": "57592b25d4d0f6f1d029e7f732b4e4c6"
+  },
+  "services/nvidia_sts_service.py": {
+    "mtime": 1788062526.7145402,
+    "seen": 1788063616.763457,
+    "ast_hash": "e0c2689ea9df8917f7630976b59b9c99",
+    "semantic_hash": "e0c2689ea9df8917f7630976b59b9c99"
+  },
+  "services/rag_service.py": {
+    "mtime": 1787213598.9696398,
+    "seen": 1788063616.7634602,
+    "ast_hash": "64558599b3af13dc4a878d2179a6cbfc",
+    "semantic_hash": "64558599b3af13dc4a878d2179a6cbfc"
+  },
+  "services/stt_service.py": {
+    "mtime": 1788062593.77921,
+    "seen": 1788063616.7634633,
+    "ast_hash": "68df6fb141f4a0e5d9900dc9510670e2",
+    "semantic_hash": "68df6fb141f4a0e5d9900dc9510670e2"
+  },
+  "services/tts_service.py": {
+    "mtime": 1788062598.5731134,
+    "seen": 1788063616.7634664,
+    "ast_hash": "e3a9276fe5dd336cfd03afae31d27364",
+    "semantic_hash": "e3a9276fe5dd336cfd03afae31d27364"
+  },
+  "test_model.py": {
+    "mtime": 1788062552.0426154,
+    "seen": 1788063616.763469,
+    "ast_hash": "4315cce544cbf08251bc15043f32525e",
+    "semantic_hash": "4315cce544cbf08251bc15043f32525e"
+  },
+  "tests/test_api.py": {
+    "mtime": 1788062556.9227266,
+    "seen": 1788063616.763472,
+    "ast_hash": "34d758ddf06eeb4e79778b21628b43b0",
+    "semantic_hash": "34d758ddf06eeb4e79778b21628b43b0"
+  },
+  "vite.config.js": {
+    "mtime": 1787631880.359859,
+    "seen": 1788063616.7634757,
+    "ast_hash": "9bf60514fc560ec5ece1cc98ea92777e",
+    "semantic_hash": "9bf60514fc560ec5ece1cc98ea92777e"
+  }
+}
