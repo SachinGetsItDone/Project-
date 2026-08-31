@@ -1,0 +1,37 @@
+name: Weekly Report Generator
+
+on:
+  schedule:
+    - cron: '59 23 * * 6'
+  workflow_dispatch:
+
+jobs:
+  generate-weekly-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-report.txt
+
+      - name: Generate weekly report
+        run: |
+          python Generate_Report.py weekly
+
+      - name: Upload generated PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-report-pdf
+          path: '*.pdf'
+          if-no-files-found: error
