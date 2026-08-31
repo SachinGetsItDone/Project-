@@ -1,1 +1,0 @@
-import React from 'react';\nexport default () => <div>SessionResult</div>;
