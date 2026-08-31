@@ -1,0 +1,10 @@
+*.md
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.html
+*.txt
+requirements.txt
+graphify-out/
+tokens.css
